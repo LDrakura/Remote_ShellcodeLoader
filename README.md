@@ -26,7 +26,7 @@
 
 ./loader url
 
-![image-20220513164025793](/Users/admin/Desktop/HSLOAD/README.assets/image-20220513164025793.png)
+![image-20220513164025793](./README.assets/image-20220513164025793.png)
 
 ~~当然，你可以下载源码把url硬编码在代码中，这样连命令行特征都没有了。~~
 
@@ -47,19 +47,19 @@
 
   - sleep	不执行任何操作。
 
-    ![image-20220513164901190](/Users/admin/Desktop/HSLOAD/README.assets/image-20220513164901190.png)
+    ![image-20220513164901190](./README.assets/image-20220513164901190.png)
 
   - cmd     执行命令 value 为要执行的命令。
 
-    ![image-20220513164924976](/Users/admin/Desktop/HSLOAD/README.assets/image-20220513164924976.png)
+    ![image-20220513164924976](./README.assets/image-20220513164924976.png)
 
   - up        执行shellcode上线 value为shellcode bin的16进制
 
-    ![image-20220513165111697](/Users/admin/Desktop/HSLOAD/README.assets/image-20220513165111697.png)
+    ![image-20220513165111697](./README.assets/image-20220513165111697.png)
 
   - exit      退出进程。
 
-    ![image-20220513165019842](/Users/admin/Desktop/HSLOAD/README.assets/image-20220513165019842.png)
+    ![image-20220513165019842](./README.assets/image-20220513165019842.png)
 
 ## 场景
 
@@ -69,11 +69,11 @@
 
 - 执行命令添加用户。
 
-  ![image-20220513165503944](/Users/admin/Desktop/HSLOAD/README.assets/image-20220513165503944.png)
+  ![image-20220513165503944](./README.assets/image-20220513165503944.png)
 
 - 上线CobaltStrike
 
-  ![image-20220513165450977](/Users/admin/Desktop/HSLOAD/README.assets/image-20220513165450977.png)
+  ![image-20220513165450977](./README.assets/image-20220513165450977.png)
 
 
 
