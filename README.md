@@ -51,7 +51,7 @@
 
   - cmd     执行命令 value 为要执行的命令。
 
-    ![image-20220615103526984](/Users/admin/Desktop/Remote_ShellcodeLoader/README.assets/image-20220615103526984.png)
+    ![image-20220615103526984](./README.assets/image-20220615103526984.png)
 
   - up        执行shellcode上线 value为shellcode bin的16进制
 
@@ -69,7 +69,7 @@
 
 - 执行命令添加用户。
 
-  ![image-20220615104154544](/Users/admin/Desktop/Remote_ShellcodeLoader/README.assets/image-20220615104154544.png)
+  ![image-20220615104154544](./README.assets/image-20220615104154544.png)
 
 - 上线CobaltStrike
 
