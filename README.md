@@ -73,17 +73,13 @@
 
 - 上线CobaltStrike
 
-  ![image-20220513165450977](./README.assets/image-20220513165450977.png)
+  ![image-20220617142852046](./README.assets/image-20220617142852046.png)
 
 
 
 ## 问题
 
 已知问题
-
-- 加载shellcode后创建线程执行，但是beacon退出后会exit整个进程（cmd方式无此问题）
-
-  好像和CobaltStrike Beacon退出方式有关
 
 - 仅支持X64
 
@@ -98,7 +94,7 @@
 ## ~~TODO~~
 
 - [x] 接受带空格的命令【已支持】
-- [ ] ~~线程退出后不影响进程~~
+- [x] ~~线程退出后不影响进程~~【已支持】
 
 
 

