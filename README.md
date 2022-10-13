@@ -36,7 +36,7 @@
  远端配置文件：
  sleep:10
  type:cmd
- value:calc
+ value:cmd /c calc
  ```
 
 - sleep: 休眠时间，下次获取服务端配置间隔（单位：秒）
@@ -51,7 +51,7 @@
 
   - cmd     执行命令 value 为要执行的命令。
 
-    ![image-20220513164924976](./README.assets/image-20220513164924976.png)
+    ![image-20220615103526984](./README.assets/image-20220615103526984.png)
 
   - up        执行shellcode上线 value为shellcode bin的16进制
 
@@ -69,11 +69,11 @@
 
 - 执行命令添加用户。
 
-  ![image-20220513165503944](./README.assets/image-20220513165503944.png)
+  ![image-20220615104154544](./README.assets/image-20220615104154544.png)
 
 - 上线CobaltStrike
 
-  ![image-20220513165450977](./README.assets/image-20220513165450977.png)
+  ![image-20220617142852046](./README.assets/image-20220617142852046.png)
 
 
 
@@ -81,24 +81,20 @@
 
 已知问题
 
-- 命令只接受单个命令，不接受空格
-
-  和读取方式有关，后面改
-
-- 加载shellcode后创建线程执行，但是beacon退出后会exit整个进程（cmd方式无此问题）
-
-  好像和CobaltStrike Beacon退出方式有关
-
 - 仅支持X64
 
+- 最后一行不能包含空格，因为是根据\n与\r判断换行符。在某些场景下，会出现问题。
+
 - 没有经过严格测试，有bug
+
+
 
   
 
 ## ~~TODO~~
 
-- 接受带空格的命令
-- ~~线程退出后不影响进程~~
+- [x] 接受带空格的命令【已支持】
+- [x] ~~线程退出后不影响进程~~【已支持】
 
 
 
